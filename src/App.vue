@@ -29,6 +29,10 @@ if( confirmacaosenha.value != senha.value) {
 else { aparecer.value = !aparecer.value }
 }
 
+if( nome.value == '' || email.value == ''  senha.value == '' || confirmacaosenha.value == ''  datadenascimento.value == '' || enderecobairro.value == ''  enderecorua.value == '' || endereconumero.value == '' )
+
+
+
 </script>
 
 <template>
