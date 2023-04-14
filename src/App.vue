@@ -20,24 +20,25 @@ const biografia = ref('')
 </script>
 
 <template>
-<div class="nome"></div>
-<div><input type="text" v-model="nome" placeholder="digite seu nome :"></div>
-<div class="email"></div>
-<div><input type="email" v-model="email" placeholder="digite seu email :"/></div>
-<div class="senha"></div>
-<div><input type="password" v-model="senha" placeholder="digite sua senha :"/></div>
-<div class="confirmação_senha"></div>
-<div><input type="password" v-model="confirmacaosenha" placeholder="confirmação da senha :"/></div>
-<div class="data"></div>
-<div><input type="date" v-model="datadenascimento" placeholder="digite sua data de nascimento :"/></div>
-<div class="rua"></div>
-<div><input type="text" v-model="enderecorua" placeholder="digite sua rua :"/></div>
-<div class="numero_rua"></div>
-<div><input type="number" v-model="endereconumero" placeholder="digite o numero da sua rua :"/></div>
-<div class="bairro"></div>
-<div><input type="text" v-model="enderecobairro" placeholder="diga o seu bairro :"/></div>
-<div class="cidade"></div>
-<div><input type="text" v-model="cidade" placeholder="digite a sua cidade :"/></div>
+  <div id="editar">
+<div class="nome">
+<input type="text" v-model="nome" placeholder="digite seu nome :"></div>
+<div class="email">
+<input type="email" v-model="email" placeholder="digite seu email :"/></div>
+<div class="senha">
+<input type="password" v-model="senha" placeholder="digite sua senha :"/></div>
+<div class="confirmação_senha">
+<input type="password" v-model="confirmacaosenha" placeholder="confirmação da senha :"/></div>
+<div class="data">
+<input type="date" v-model="datadenascimento" placeholder="digite sua data de nascimento :"/></div>
+<div class="rua">
+<input type="text" v-model="enderecorua" placeholder="digite sua rua :"/></div>
+<div class="numero_rua">
+<input type="number" v-model="endereconumero" placeholder="digite o numero da sua rua :"/></div>
+<div class="bairro">
+<input type="text" v-model="enderecobairro" placeholder="diga o seu bairro :"/></div>
+<div class="cidade">
+<input type="text" v-model="cidade" placeholder="digite a sua cidade :"/></div>
 <div class = "estado">
 <h4>insira seu estado :</h4>
 <select v-model="estado">
@@ -69,13 +70,36 @@ const biografia = ref('')
 <option value = "SE">Sergipe</option>
 <option value = "TO">Tocantins</option>
 </select></div>
-<div class="hobbies"><div><input type="text" v-model="hobbies" placeholder="digite seus hobbies :"/></div></div>
+<div class="hobbies"><input type="text" v-model="hobbies" placeholder="digite seus hobbies :"/></div>
 
-<div class="linguagem"> </div>
-<div><input type="text" v-model="linguagem" placeholder="digite a linguagem da programação :"/></div>
-<div class="biografia"></div>
-<div><input type="text" v-model="biografia" placeholder="digite sua biografia :"/></div>
+<div class="linguagem">
+<input type="text" v-model="linguagem" placeholder="digite a linguagem da programação :"/></div>
+<div class="biografia">
+<input type="text" v-model="biografia" placeholder="digite sua biografia :"/></div>
 
+  </div>
+  <div id="resposta">
+    <h1>Perfil d:</h1>
+    <div class="nome_novo">
+      <p>{{ nome }}</p>
+    </div>
+    <div class="data_nascimento_nova">
+      <p>{{ datadenascimento }}</p>
+    </div>
+    <div class="email_novo">
+      <p>{{ email }}</p>
+    </div>
+    <div class="senha_novo"></div>
+    <div class="endereco_atual">
+      <p>
+        Endereço: {{ enderecorua }}, {{ endereconumero }},{{ enderecobairro }}, {{ cidade }},
+        {{ estado }}
+      </p>
+    </div>
+    <div class="hoobie_novo">Hoobie(s): {{ hobbies }}</div>
+    <div class="linguagem_nova">Linguagem(s) de Programação: {{ linguagem }}</div>
+    <div class="bio_nova">Biografia: {{ biografia }}</div>
+  </div>
 
 
 
@@ -85,5 +109,15 @@ const biografia = ref('')
 div{
   margin: 3px;
 }
-
+#editar{
+  background-color: blueviolet;
+  border-radius: 5%;
+  border-color:rgb(28, 224, 21) ;
+  border-style:groove;
+padding: 12px;
+}
+#resposta{
+  background-color: coral;
+  
+}
 </style>
