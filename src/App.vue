@@ -29,7 +29,14 @@ if( confirmacaosenha.value != senha.value) {
 else { aparecer.value = !aparecer.value }
 }
 
-if( nome.value == '' || email.value == ''  senha.value == '' || confirmacaosenha.value == ''  datadenascimento.value == '' || enderecobairro.value == ''  enderecorua.value == '' || endereconumero.value == '' )
+function handleFileUpload(e) {
+  const target = e.target
+  if (target && target.files) {
+    const file = target.files[0]
+    console.log(file)
+    imagem.value = URL.createObjectURL(file)
+  }
+}
 
 
 
@@ -39,7 +46,7 @@ if( nome.value == '' || email.value == ''  senha.value == '' || confirmacaosenha
   <div id="editar">
     <div>
       <div class="nome">
-        <input type="text" v-model="nome" placeholder="digite seu nome :">
+        <input type="text" v-model="nome" placeholder="digite seu nome :"   required>
       </div>
       <div class="email">
         <input type="email" v-model="email" placeholder="digite seu email :" />
@@ -105,12 +112,24 @@ if( nome.value == '' || email.value == ''  senha.value == '' || confirmacaosenha
       <div class="biografia">
         <input type="text" v-model="biografia" placeholder="digite sua biografia :" />
       </div>
+      <div>
+        <h3>Escolha sua nova foto de perfil</h3>
+        
+        <input
+          type="file"
+          id="imagem"
+          @change="handleFileUpload($event)"
+        />      
+      </div>
       <button type="submit" @click="validacao"> enviar</button>
     </div>
 
   </div>
   <div id="resposta" v-if="aparecer">
     <h1>Perfil depois de atualizado :</h1>
+    <div class="img_atual">
+      <img :src="imagem" alt="" />
+    </div>
     <div class="nome_novo">
       <p>{{ nome }}</p>
     </div>
@@ -156,4 +175,16 @@ div {
   border-style: groove;
   padding: 12px;
   box-shadow: 3px 4px 15px rgb(0, 0, 0);
-}</style>
+}
+.img_atual img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.img_atual {
+  width: '100%';
+  display: flex;
+  justify-content: center;
+}
+
+</style>
