@@ -43,15 +43,13 @@ function handleFileUpload(e) {
   }
 }
 
-
-
 </script>
 
 <template>
   <div id="editar">
     <div>
       <div class="nome">
-        <input type="text" v-model="nome" placeholder="digite seu nome :" required>
+        <input type="text" v-model="nome" placeholder="digite seu nome :" >
       </div>
       <div class="email">
         <input type="email" v-model="email" placeholder="digite seu email :" />
