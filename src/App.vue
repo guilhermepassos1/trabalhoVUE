@@ -16,6 +16,7 @@ const linguagem = ref([])
 const biografia = ref('')
 
 
+
 const novaLinguagem = ref('')
 const novoHobbie = ref('')
 
@@ -29,12 +30,16 @@ if( confirmacaosenha.value != senha.value) {
 else { aparecer.value = !aparecer.value }
 }
 
+
+const user = ref({
+  avatar: null
+})
+
 function handleFileUpload(e) {
   const target = e.target
   if (target && target.files) {
     const file = target.files[0]
-    console.log(file)
-    imagem.value = URL.createObjectURL(file)
+    user.value.avatar = URL.createObjectURL(file)
   }
 }
 
@@ -46,7 +51,7 @@ function handleFileUpload(e) {
   <div id="editar">
     <div>
       <div class="nome">
-        <input type="text" v-model="nome" placeholder="digite seu nome :"   required>
+        <input type="text" v-model="nome" placeholder="digite seu nome :" required>
       </div>
       <div class="email">
         <input type="email" v-model="email" placeholder="digite seu email :" />
@@ -111,6 +116,8 @@ function handleFileUpload(e) {
       </div>
       <div class="biografia">
         <input type="text" v-model="biografia" placeholder="digite sua biografia :" />
+    
+
       </div>
       <div>
         <h3>Escolha sua nova foto de perfil</h3>
@@ -127,9 +134,8 @@ function handleFileUpload(e) {
   </div>
   <div id="resposta" v-if="aparecer">
     <h1>Perfil depois de atualizado :</h1>
-    <div class="img_atual">
-      <img :src="imagem" alt="" />
-    </div>
+    <div class = "img_nova"> 
+    <img :src="user.avatar" /></div>
     <div class="nome_novo">
       <p>{{ nome }}</p>
     </div>
@@ -160,31 +166,32 @@ div {
 }
 
 #editar {
-  background-color: blueviolet;
+  background-color: #404040;
   border-radius: 5%;
-  border-color: rgb(28, 224, 21);
+  border-color: #BFBFBF;
   border-style: groove;
   padding: 12px;
   box-shadow: 3px 4px 15px black;
 }
 
 #resposta {
-  background-color: rgb(255, 52, 52);
+  background-color: #0D0D0D;
   border-radius: 5%;
-  border-color: rgb(255, 229, 62);
+  border-color: #262626;
   border-style: groove;
   padding: 12px;
-  box-shadow: 3px 4px 15px rgb(0, 0, 0);
+  box-shadow: #404040;
+  
 }
-.img_atual img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-}
-.img_atual {
+.img_nova {
   width: '100%';
   display: flex;
   justify-content: center;
+}
+.img_nova img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
 }
 
 </style>
