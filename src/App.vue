@@ -180,7 +180,7 @@ div {
   border-color: #262626;
   border-style: groove;
   padding: 12px;
-  box-shadow: #404040;
+  box-shadow: #3d3d3d;
   
 }
 .img_nova {
