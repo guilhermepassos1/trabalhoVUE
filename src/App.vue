@@ -12,12 +12,12 @@ const enderecobairro = ref('')
 const cidade = ref('')
 const estado = ref('')
 const hobbies = ref([])
-const linguagem = ref([])
+const linguagem = ref(['JavaScript', 'Java', 'Python', 'C#', 'C++'])
 const biografia = ref('')
 
 
 
-const novaLinguagem = ref('')
+
 const novoHobbie = ref('')
 
 const aparecer = ref(false)
@@ -110,8 +110,43 @@ function handleFileUpload(e) {
       <div class="hobbies"><input type="text" v-model="novoHobbie" @keypress.enter="hobbies.push(novoHobbie); novoHobbie = ''" placeholder="digite seus hobbies :" /></div>
 
       <div class="linguagem">
-        <input type="text" v-model="novaLinguagem" @keypress.enter="linguagem.push(novaLinguagem); novaLinguagem = ''" placeholder="digite a linguagem da programação :" />
-      </div>
+        <div>Selecione uma linguagem de programação :</div>
+        <div class="form-check">
+        <div class="form-check">
+  <input class="form-check-input" type="radio" v-model="linguagem[0]" name="flexRadioDefault" value="JavaScript" id="flexRadioDefault1" checked>
+  <label class="form-check-label" for="flexRadioDefault1">
+    {{ linguagem[0] }}
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" v-model="linguagem[1]" name="flexRadioDefault" value="Java" id="flexRadioDefault2" >
+  <label class="form-check-label" for="flexRadioDefault2">
+{{ linguagem[1] }}    
+  </label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" type="radio" v-model="linguagem[2]" name="flexRadioDefault" value="Python" id="flexRadioDefault3" >
+  <label class="form-check-label" for="flexRadioDefault3">
+{{ linguagem[2] }}    
+  </label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" type="radio" v-model="linguagem[3]" name="flexRadioDefault" value="C#" id="flexRadioDefault4" >
+  <label class="form-check-label" for="flexRadioDefault4">
+{{ linguagem[3] }}    
+  </label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" type="radio" v-model="linguagem[4]" name="flexRadioDefault" value="C++" id="flexRadioDefault5" >
+  <label class="form-check-label" for="flexRadioDefault5">
+{{ linguagem[4] }}    
+  </label>
+</div>
+  </div>
+    </div>
       <div class="biografia">
         <textarea v-model="biografia" v-on:keypress="enviar = false"></textarea>
     
@@ -156,6 +191,8 @@ function handleFileUpload(e) {
     <button type="submit" @click="validacao"> Editar</button>
 
   </div>
+
+  
 </template>
 
 <style>
