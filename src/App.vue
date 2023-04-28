@@ -113,7 +113,7 @@ function handleFileUpload(e) {
         <input type="text" v-model="novaLinguagem" @keypress.enter="linguagem.push(novaLinguagem); novaLinguagem = ''" placeholder="digite a linguagem da programação :" />
       </div>
       <div class="biografia">
-        <input type="text" v-model="biografia" placeholder="digite sua biografia :" />
+        <textarea v-model="biografia" v-on:keypress="enviar = false"></textarea>
     
 
       </div>
@@ -170,6 +170,7 @@ div {
   border-style: groove;
   padding: 12px;
   box-shadow: 3px 4px 15px black;
+  color: aliceblue
 }
 
 #resposta {
@@ -179,6 +180,7 @@ div {
   border-style: groove;
   padding: 12px;
   box-shadow: #3d3d3d;
+   color: aliceblue
   
 }
 .img_nova {
