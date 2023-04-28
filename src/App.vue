@@ -42,6 +42,8 @@ function handleFileUpload(e) {
     user.value.avatar = URL.createObjectURL(file)
   }
 }
+ 
+
 
 </script>
 
